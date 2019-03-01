@@ -77,7 +77,29 @@ app.get("/jmmmmuu/post/:id", function(req, res) {
     });
 });
 
+app.get("/jmmmmuu/post/:id/edit", function(req, res) {
+    Post.findById(req.params.id, function(err, foundPost) {
+        if (err) {
+            console.log("error occured in editPost page");
+            console.log(err);
+        }
+        else {
+            res.render("editPost", {post: foundPost});
+        }
+    });
+});
 
+app.put("/jmmmmuu/post/:id", function(req, res) {
+    Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost) {
+        if (err) {
+            console.log("error occured while Updating Post");
+            console.log(err);
+        }
+        else {
+            res.redirect("/jmmmmuu/post/" + req.params.id);
+        }
+    });
+});
 
 app.delete("/jmmmmuu/post/:id", function(req, res) {
     Post.findByIdAndRemove(req.params.id, function(err) {
