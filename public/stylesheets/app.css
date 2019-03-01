@@ -5,3 +5,5 @@
     text-align: right;
     bottom: 0px;
 }
+
+#delete { display: inline; }

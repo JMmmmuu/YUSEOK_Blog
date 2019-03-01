@@ -65,6 +65,31 @@ app.post("/jmmmmuu/post", function(req, res) {
     });
 });
 
+app.get("/jmmmmuu/post/:id", function(req, res) {
+    Post.findById(req.params.id, function(err, foundPost) {
+        if (err) {
+            console.log("error occured in loading post/id");
+            console.log(err);
+        }
+        else {
+            res.render("showPost", {post: foundPost});
+        }
+    });
+});
+
+
+
+app.delete("/jmmmmuu/post/:id", function(req, res) {
+    Post.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            console.log("error occured in deleting a post");
+            console.log(err);
+        }
+        else {
+            res.redirect("/jmmmmuu/post");
+        }
+    });
+});
 /*********************************************************
  ************************* BOOK **************************
  *********************************************************/
