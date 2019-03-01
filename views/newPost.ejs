@@ -1,0 +1,24 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">New Post</div>
+    <div class="ui form" action="/jmmmmuu/post" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="post[title]" placeholder="title" required>
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="post[image]" placeholder="Image" required>
+        </div>
+        <div class="field">
+            <label>Content</label>
+            <textarea type="text" name="post[content]" required></textarea>
+        </div>
+        <button class="ui positive basic button">Done</button>
+
+
+    </div>
+</div>
+
+<% include partials/footer %>

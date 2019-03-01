@@ -1,0 +1,52 @@
+<% include partials/header %>
+
+<div class="ui main text container">
+
+  <div class="ui three doubling stackable cards">
+
+    <% posts.forEach(function(post) { %>
+
+        <div class="ui card">
+          <div class="image">
+              <img class="ui fluid image" src="<%= post.image %>">
+          </div>
+          <div class="content">
+              <div class="header"><%= post.title %></div>
+          </div>
+        </div>
+    <% }); %>
+
+
+    <div class="ui card">
+      <div class="image">
+          <img class="ui fluid image" src="https://img1.daumcdn.net/thumb/R720x0/?fname=https://t1.daumcdn.net/liveboard/catlab/ba2a8da67b014d1cb11e1da3e2482cb3.JPG">
+      </div>
+      <div class="content">
+          <div class="header">Title Comes Here</div>
+      </div>
+    </div>
+
+
+
+    <div class="ui card">
+      <div class="image">
+          <img class="ui fluid image" src="https://img1.daumcdn.net/thumb/R720x0/?fname=https://t1.daumcdn.net/liveboard/catlab/ba2a8da67b014d1cb11e1da3e2482cb3.JPG">
+      </div>
+      <div class="content">
+          <div class="header">Title Comes Here</div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<% include partials/footer %>
