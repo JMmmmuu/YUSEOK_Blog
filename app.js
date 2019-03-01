@@ -6,9 +6,7 @@ var express = require("express"),
     expressSanitizer = require("express-sanitizer");
 
 // APP CONFIG
-var uriString = process.env.MONGOLAB_URI ||
-                process.env.MONGOHQ_URL ||
-                "mongodb://localhost/yuseok_blog";
+var uriString = "mongodb://jmmmmuu:yuseok123@ds157677.mlab.com:57677/heroku_5ws4pk3r";
 mongoose.connect(uriString, {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -37,6 +35,10 @@ app.get("/jmmmmuu", function(req, res) {
 /*********************************************************
  ************************* POST **************************
  *********************************************************/
+app.get("/jmmmmuu/post/new", function(req, res) {
+    res.render("newPost");
+});
+
 app.get("/jmmmmuu/post", function(req, res) {
     Post.find({}, function(err, posts) {
         if (err) {
@@ -49,12 +51,8 @@ app.get("/jmmmmuu/post", function(req, res) {
     });
 });
 
-app.get("/jmmmmuu/post/new", function(req, res) {
-    res.render("newPost");
-});
-
 app.post("/jmmmmuu/post", function(req, res) {
-    req.body.post.content = req.sanitize(req.body.post.content);
+    //req.body.post.content = req.sanitize(req.body.post.content);
     Post.create(req.body.post, function(err, newPost) {
         if (err) {
             console.log("error in posting");
