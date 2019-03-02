@@ -29,7 +29,15 @@ app.get("/", function(req, res) {
 });
 
 app.get("/jmmmmuu", function(req, res) {
-    res.render("main");
+    Post.find({}).sort({date: -1}).limit(3).exec(function(err, posts) {
+        if (err) {
+            console.log("Error occured in finding posts");
+            console.log(err);
+        }
+        else {
+            res.render("main", {posts, posts});
+        }
+    });
 });
 
 /*********************************************************

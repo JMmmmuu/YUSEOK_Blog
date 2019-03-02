@@ -3,23 +3,38 @@
 <div class="ui main text container">
     <div class="ui placeholder segment">
         <div class="ui vertical segment">
-            <div class="ui large header">Post</div>
-                <div>
+            <div class="ui huge header">Post</div>
+                <div class="ui divided items">
+                    <% posts.forEach(function(post) { %>
+                        <div class="item">
+                            <div class="ui small left floated image">
+                                <img src="<%= post.image %>">
+                            </div>
+                            <div class="content">
+                                <a class="ui header" href="/jmmmmuu/post/<%=post._id %>"><%= post.title %></a>
+                            </div>
+                        </div>        
+
+
+                    <% }); %>
 
 
                 </div>
+                <a class="ui extra">
+                    <a class="ui blue" href="/jmmmmuu/post/">See More</a>
+                </a>
         </div>
     </div>
 
     <div class="ui placeholder segment">
         <div class="ui vertical segment">
-            <div class="ui large header">Book</div>
+            <div class="ui huge header">Book</div>
         </div>
     </div>
 
     <div class="ui placeholder segment">
         <div class="ui vertical segment">
-            <div class="ui large header">Running</div>
+            <div class="ui huge header">Running</div>
         </div>
     </div>
 
