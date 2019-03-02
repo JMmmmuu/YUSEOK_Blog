@@ -1,36 +1,47 @@
 <% include partials/header %>
 
-<div class="ui main text container">
-    <div class="ui placeholder segment">
-        <div class="ui vertical segment">
-            <div class="ui huge header">Post</div>
-                <div class="ui divided items">
-                    <% posts.forEach(function(post) { %>
-                        <div class="item">
-                            <div class="ui small left floated image">
-                                <img src="<%= post.image %>">
-                            </div>
-                            <div class="content">
-                                <a class="ui header" href="/jmmmmuu/post/<%=post._id %>"><%= post.title %></a>
-                            </div>
-                        </div>        
+<div class="ui main container">
+    <div class="ui grid">
+        <div class="two column row">
 
+            <div class="column">
+                <div class="ui placeholder segment">
+                    <div class="ui vertical segment">
+                        <a class="ui huge header" href="/jmmmmuu/post/">Post</a>
+                        <div class="ui horizontal divider">Content</div>
 
-                    <% }); %>
+                        <div class="ui items">
+                            <% posts.forEach(function(post) { %>
+                                <div class="item">
+                                    <div class="ui small left floated image">
+                                        <img src="<%= post.image %>">
+                                    </div>
+                                    <div class="middle aligned content">
+                                        <a class="ui header" href="/jmmmmuu/post/<%=post._id %>"><%= post.title %></a>
+                                    </div>
+                                </div><!-- class="item" -->
+                            <% }); %>
 
+                        </div><!-- items -->
+                        <div class="extra content">
+                            <a class="ui blue right floated" href="/jmmmmuu/post/">See More</a>
+                        </div>
+                    </div><!-- ui vertical segment -->
+                </div><!-- placeholder segment -->
+            </div><!-- column -->
 
+            <div class="column">
+                <div class="ui placeholder segment">
+                    <div class="ui vertical segment">
+                        <div class="ui huge header">Book</div>
+                    </div>
                 </div>
-                <a class="ui extra">
-                    <a class="ui blue" href="/jmmmmuu/post/">See More</a>
-                </a>
+            </div><!-- column -->
+
         </div>
     </div>
 
-    <div class="ui placeholder segment">
-        <div class="ui vertical segment">
-            <div class="ui huge header">Book</div>
-        </div>
-    </div>
+
 
     <div class="ui placeholder segment">
         <div class="ui vertical segment">
