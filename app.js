@@ -40,7 +40,7 @@ app.get("/jmmmmuu/post/new", function(req, res) {
 });
 
 app.get("/jmmmmuu/post", function(req, res) {
-    Post.find({}, function(err, posts) {
+    Post.find({}).sort({date: -1}).exec(function(err, posts) {
         if (err) {
             console.log("Error occured while finding posts");
             console.log(err);
