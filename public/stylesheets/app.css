@@ -7,3 +7,16 @@
 }
 
 #delete { display: inline; }
+
+.column #caard {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#caard .contetn {
+    padding-top: 15px;
+}

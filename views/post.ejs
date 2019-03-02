@@ -1,7 +1,33 @@
 <% include partials/header %>
 
-<div class="ui main text container">
-  <div class="ui three doubling stackable cards">
+<div class="ui main container">
+  <div class="ui grid">
+    <div class="three column row">
+      
+
+      <% posts.forEach(function(post) { %>
+
+        <div class="column">      
+          <div id="caard" class="item">
+
+              <img class="ui fluid bordered rounded image" src="<%= post.image %>">
+              <div class="content">
+                <a class="ui large header" href="/jmmmmuu/post/<%= post._id %>"><%= post.title %></a>
+              </div>
+
+          </div>
+        </div>
+      <% }); %>
+
+
+
+    </div>
+  </div>
+
+
+
+<!--
+  <div class="ui three cards"><!-- doubling stackable cards">-
 
 
     <% posts.forEach(function(post) { %>
@@ -16,7 +42,7 @@
         </div>
     <% }); %>
 </div>
-
+-->
 
 
 <% include partials/footer %>
