@@ -123,7 +123,8 @@ app.delete("/jmmmmuu/post/:id", function(req, res) {
 /*********************************************************
  ************************* BOOK **************************
  *********************************************************/
-var request = require("request");
+var request = require("request"),
+    utf8 = require("utf8");
 /*
 app.get("/jmmmmuu/book", function(req, res) {
     res.render("book");
@@ -131,11 +132,12 @@ app.get("/jmmmmuu/book", function(req, res) {
 */
 
 app.get("/jmmmmuu/book/", function(req, res) {
-    res.render("searchBook");
+    var selected = req.query.selected;
+    res.render("searchBook", {selected: selected});
 });
 
 app.get("/jmmmmuu/book/results/", function(req, res) {
-    var query = req.query.searchedBook;
+    var query = utf8.encode(req.query.searchedBook);
     var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=3",
         header = {
             "X-Naver-Client-Id": "y80v6xvi7snx2hnMqZ8B",
