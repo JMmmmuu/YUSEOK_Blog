@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<div class="ui main text container">
+
+
+
+<form action="/jmmmmuu/book/" method="GET">
+    <div class="grouped fields">
+        <label for="selected">Select the proper book:</label>
+
+        <% data["items"].forEach(function(book) { %>
+    
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="selected">
+                    <label><%= book.title %></label>
+                    
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <button>Submit</button>
+</form>
+
+<div class="ui divider"></div>
+
+<%= JSON.stringify(data) %>
+
+</div>
+
+
+<% include partials/footer %>
