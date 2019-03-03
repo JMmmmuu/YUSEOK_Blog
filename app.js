@@ -123,8 +123,35 @@ app.delete("/jmmmmuu/post/:id", function(req, res) {
 /*********************************************************
  ************************* BOOK **************************
  *********************************************************/
+var request = require("request");
+/*
 app.get("/jmmmmuu/book", function(req, res) {
     res.render("book");
+});
+*/
+
+app.get("/jmmmmuu/book/", function(req, res) {
+    res.render("searchBook");
+});
+
+app.get("/jmmmmuu/book/results/", function(req, res) {
+    var query = req.query.searchedBook;
+    var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=3",
+        header = {
+            "X-Naver-Client-Id": "y80v6xvi7snx2hnMqZ8B",
+            "X-Naver-Client-Secret": "aLthqKrcRB"
+        };
+    request({url: url, headers: header}, function(err, response, body) {
+        if (err) {
+            console.log("error occured searching book");
+            console.log(err);
+        }
+        else {
+            var data = JSON.parse(body);
+            res.render("bookResults", {data: data});
+            console.log(response);
+        }
+    });
 });
 
 /*********************************************************

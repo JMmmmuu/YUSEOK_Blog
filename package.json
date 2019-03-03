@@ -24,6 +24,7 @@
     "express-sanitizer": "^1.0.5",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.16",
+    "request": "^2.88.0",
     "strava": "0.0.2"
   }
 }
