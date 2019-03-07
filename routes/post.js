@@ -6,7 +6,7 @@ var express = require("express"),
  ************************* POST **************************
  *********************************************************/
 router.get("/new", function(req, res) {
-    res.render("newPost");
+    res.render("posts/new");
 });
 
 router.get("/", function(req, res) {
