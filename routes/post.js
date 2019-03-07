@@ -16,7 +16,7 @@ router.get("/", function(req, res) {
             console.log(err);
         }
         else {
-            res.render("post", {posts: posts});
+            res.render("posts/post", {posts: posts});
         }
     });
 });
@@ -27,7 +27,7 @@ router.post("/", function(req, res) {
         if (err) {
             console.log("error in posting");
             console.log(err);
-            res.render("newPost");
+            res.render("posts/new");
         }
         else {
             res.redirect("/jmmmmuu/post");
@@ -42,7 +42,7 @@ router.get("/:id", function(req, res) {
             console.log(err);
         }
         else {
-            res.render("showPost", {post: foundPost});
+            res.render("posts/show", {post: foundPost});
         }
     });
 });
@@ -54,7 +54,7 @@ router.get("/:id/edit", function(req, res) {
             console.log(err);
         }
         else {
-            res.render("editPost", {post: foundPost});
+            res.render("posts/edit", {post: foundPost});
         }
     });
 });

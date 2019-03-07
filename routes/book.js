@@ -15,10 +15,10 @@ app.get("/jmmmmuu/book", function(req, res) {
 
 router.get("/", function(req, res) {
     var selected = req.query.selected;
-    res.render("searchBook", {selected: selected});
+    res.render("books/searchBook", {selected: selected});
 });
 
-router.get("/results/", function(req, res) {
+router.get("/results", function(req, res) {
     var query = utf8.encode(req.query.searchedBook);
     var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=3",
         header = {
@@ -32,7 +32,7 @@ router.get("/results/", function(req, res) {
         }
         else {
             var data = JSON.parse(body);
-            res.render("bookResults", {data: data});
+            res.render("books/bookResults", {data: data});
             console.log(response);
         }
     });
