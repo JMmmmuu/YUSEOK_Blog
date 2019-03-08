@@ -5,7 +5,7 @@ var express = require("express"),
 /*********************************************************
  ************************* POST **************************
  *********************************************************/
-router.get("/new", function(req, res) {
+router.get("/new", isLoggedIn, function(req, res) {
     res.render("posts/new");
 });
 
@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("/", function(req, res) {
+router.post("/", isLoggedIn, function(req, res) {
     //req.body.post.content = req.sanitize(req.body.post.content);
     Post.create(req.body.post, function(err, newPost) {
         if (err) {
@@ -35,7 +35,7 @@ router.post("/", function(req, res) {
     });
 });
 
-router.get("/:id", function(req, res) {
+router.get("/:id", isLoggedIn, function(req, res) {
     Post.findById(req.params.id, function(err, foundPost) {
         if (err) {
             console.log("error occured in loading post/id");
@@ -47,7 +47,7 @@ router.get("/:id", function(req, res) {
     });
 });
 
-router.get("/:id/edit", function(req, res) {
+router.get("/:id/edit", isLoggedIn, function(req, res) {
     Post.findById(req.params.id, function(err, foundPost) {
         if (err) {
             console.log("error occured in editPost page");
@@ -82,5 +82,13 @@ router.delete("/:id", function(req, res) {
         }
     });
 });
+
+// MIDDLEWARE
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/jmmmmuu/login");
+};
 
 module.exports = router;
