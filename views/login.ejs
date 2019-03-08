@@ -1,0 +1,40 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui placeholder segment">
+        <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+                <form class="ui form" action="/jmmmmuu/login" method="POST">
+                    <div class="field">
+                        <label>Username</label>
+                        <div class="ui left icon input">
+                            <input type="text" name="username" placeholder="Username">
+                            <i class="user icon"></i>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <div class="ui left icon input">
+                            <input name="password" type="password" placeholder="Password">
+                            <i class="lock icon"></i>
+                        </div>
+                    </div>
+                    <button class="ui blue submit button">Login</button>
+                </form>  <!-- ui form -->
+            </div>  <!-- column -->
+            <div class="middle aligned column">
+                <a class="ui big button" href="/jmmmmuu/register">
+                    <i class="signup icon"></i>
+                    Sign Up
+                </a>
+            </div>
+        </div>
+        <div class="ui vertical divider">
+            Or
+        </div>
+    </div>
+
+</div>
+
+
+<% include partials/footer %>

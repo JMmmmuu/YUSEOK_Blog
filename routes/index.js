@@ -6,7 +6,7 @@ var express = require("express"),
 
 // all routes starts with "jmmmmuu/"
 
-// root route
+// ROOT ROUTE
 router.get("/", function(req, res) {
     Post.find({}).sort({date: -1}).limit(3).exec(function(err, posts) {
         if (err) {
@@ -19,7 +19,7 @@ router.get("/", function(req, res) {
     });
 });
 
-// register route
+// REGISTER ROUTE
 router.get("/register", function(req, res) {
     res.render("register");
 });
@@ -34,8 +34,21 @@ router.post("/register", function(req, res) {
             console.log(err);
             return res.render("register");
         }
-        res.redirect("/jmmmmuu/")
+        res.redirect("/jmmmmuu/login")
     });
 });
+
+// LOGIN ROUTE
+router.get("/login", function(req, res) {
+    res.render("login");
+});
+
+router.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/jmmmmuu",
+        failureRedirect: "/jmmmmuu/login"
+    }), function(req, res) {
+    }
+);
 
 module.exports = router;
