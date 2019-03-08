@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Sign Up!</div>
+    <form class="ui equal width form" action="/jmmmmuu/register" method="POST">
+        <div class="field">
+            <label>NAME</labe>
+            <input type="text" name="newUser[name]" placeholder="name" required>
+        </div>
+        <div class="field">
+            <label>E-MAIL</labe>
+            <input type="email" name="newUser[email]" placeholder="email" required>
+        </div>
+        <div class="fields">
+            <!--
+            <div class="field">
+                <label>ID</label>
+                <input type="text" name="newUser[ID]" placeholder="ID" required>
+            </div>
+            -->
+            <div class="field">
+                <label>ID</label>
+                <input type="text" name="newUser[username]" placeholder="ID" required>
+            </div>
+            <div class="field">
+                <label>별명</label>
+                <input type="text" name="newUser[nickname]" placeholder="nickname" required>
+            </div>
+        </div>
+        <div class="field">
+            <label>PASSWORD</label>
+            <input type="password" name="password" placeholder="password" required>
+        </div>
+        <button class="ui blue button">Sign Up!</button>
+    </form>
+</div>
+
+<% include partials/footer %>
