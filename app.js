@@ -18,7 +18,8 @@ app.use(methodOverride("_method"));
 
 // MONGOOSE
 var Post = require("./models/post"),
-    User = require("./models/user");
+    User = require("./models/user"),
+    Book = require("./models/book");
 
 // ROUTES
 var indexRoutes = require("./routes/index"),

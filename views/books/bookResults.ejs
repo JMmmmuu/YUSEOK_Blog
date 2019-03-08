@@ -4,7 +4,7 @@
 
 
 
-<form action="/jmmmmuu/book/" method="GET">
+<form action="/jmmmmuu/book/" method="POST">
     <div class="grouped fields">
         <label for="selected">Select the proper book:</label>
 
@@ -12,8 +12,9 @@
     
             <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="selected">
-                    <label><%= book.title %></label>
+                    <input type="radio" name="selected" value="<%= book %>">
+                    <label><img src="<%- book.image %>">
+                    <label><%- book.title %></label>
                     
                 </div>
             </div>
@@ -24,7 +25,7 @@
 
 <div class="ui divider"></div>
 
-<%= JSON.stringify(data) %>
+<%= JSON.stringify(data["items"][0]) %>
 
 </div>
 

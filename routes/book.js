@@ -1,6 +1,6 @@
 var express = require("express"),
     router = express.Router(),
-    Post = require("../models/post");
+    Book = require("../models/book");
 
 /*********************************************************
  ************************* BOOK **************************
@@ -18,14 +18,30 @@ router.get("/", function(req, res) {
     res.render("books/searchBook", {selected: selected});
 });
 
+router.post("/", function(req, res) {
+    var newBook = req.body.selected;
+    console.log(stringify(newBook));
+    
+    Book.create(newBook, function(err, addedBook) {
+        if (err) {
+            console.log("error occured in selecting new book");
+            console.log(err);
+        }
+        else {
+            res.redirect("/jmmmmuu/book");
+        }
+    });
+});
+
 router.get("/results", function(req, res) {
-    var query = utf8.encode(req.query.searchedBook);
-    var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=3",
+    //var query = utf8.encode(req.query.searchedBook);
+    var query = req.query.searchedBook;
+    var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=10" + "&d_titl",
         header = {
             "X-Naver-Client-Id": "y80v6xvi7snx2hnMqZ8B",
             "X-Naver-Client-Secret": "aLthqKrcRB"
         };
-    request({url: url, headers: header}, function(err, response, body) {
+    request({url: encodeURI(url), headers: header}, function(err, response, body) {
         if (err) {
             console.log("error occured searching book");
             console.log(err);
@@ -33,7 +49,6 @@ router.get("/results", function(req, res) {
         else {
             var data = JSON.parse(body);
             res.render("books/bookResults", {data: data});
-            console.log(response);
         }
     });
 });
