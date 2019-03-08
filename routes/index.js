@@ -51,6 +51,12 @@ router.post("/login", passport.authenticate("local",
     }
 );
 
+// LOGOUT ROUTE
+router.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/jmmmmuu");
+});
+
 // MIDDLEWARE
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

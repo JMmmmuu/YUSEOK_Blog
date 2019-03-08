@@ -14,8 +14,12 @@
                 <a class="ui small header item" href="/jmmmmuu/book">Book</a>
                 <a class="ui small header item" href="/jmmmmuu/running">Running</a>
                 <div class="right menu">
-                    <a class="item" href="/jmmmmuu/register">Sign Up</a>
-                    <a class="item" href="/jmmmmuu/login">Login</a>
+                    <% if (!currentUser) { %>
+                        <a class="item" href="/jmmmmuu/register">Sign Up</a>
+                        <a class="item" href="/jmmmmuu/login">Login</a>
+                    <% } else { %>
+                        <a class="item" href="/jmmmmuu/logout">Logout</a>
+                    <% } %>
                 </div>
             </div>
         </div>

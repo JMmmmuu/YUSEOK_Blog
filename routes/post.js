@@ -9,7 +9,7 @@ router.get("/new", isLoggedIn, function(req, res) {
     res.render("posts/new");
 });
 
-router.get("/", function(req, res) {
+router.get("/", isLoggedIn, function(req, res) {
     Post.find({}).sort({date: -1}).exec(function(err, posts) {
         if (err) {
             console.log("Error occured while finding posts");
@@ -59,7 +59,7 @@ router.get("/:id/edit", isLoggedIn, function(req, res) {
     });
 });
 
-router.put("/:id", function(req, res) {
+router.put("/:id", isLoggedIn, function(req, res) {
     Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, updatedPost) {
         if (err) {
             console.log("error occured while Updating Post");
@@ -71,7 +71,7 @@ router.put("/:id", function(req, res) {
     });
 });
 
-router.delete("/:id", function(req, res) {
+router.delete("/:id", isLoggedIn, function(req, res) {
     Post.findByIdAndRemove(req.params.id, function(err) {
         if (err) {
             console.log("error occured in deleting a post");
