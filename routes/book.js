@@ -7,20 +7,28 @@ var express = require("express"),
  *********************************************************/
 var request = require("request"),
     utf8 = require("utf8");
-/*
-app.get("/jmmmmuu/book", function(req, res) {
-    res.render("book");
-});
-*/
 
 router.get("/", function(req, res) {
+    Book.find({}).sort({updated: -1}).exec(function(err, books) {
+        if (err) {
+            console.log("Error occured in loading books");
+            console.log(err);
+        }
+        else {
+            res.render("books/book", {books: books});
+        }
+    });
+});
+
+router.get("/search", function(req, res) {
     var selected = req.query.selected;
     res.render("books/searchBook", {selected: selected});
 });
 
 router.post("/", function(req, res) {
     var newBook = req.body.selected;
-    console.log(stringify(newBook));
+    console.log(newBook);
+    newBook = JSON.parse(newBook);
     
     Book.create(newBook, function(err, addedBook) {
         if (err) {

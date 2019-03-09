@@ -12,9 +12,9 @@
     
             <div class="field">
                 <div class="ui radio checkbox">
-                    <input type="radio" name="selected" value="<%= book %>">
+                    <input type="radio" name="selected" value="<%= JSON.stringify(book) %>">
                     <label><img src="<%- book.image %>">
-                    <label><%- book.title %></label>
+                    <%- book.title %></label>
                     
                 </div>
             </div>

@@ -1,18 +1,15 @@
 <% include ../partials/header %>
 
-<div class="ui main container">
+<div class="ui main text container">
   <div class="ui grid">
     <div class="three column row">
 
-      <% posts.forEach(function(post) { %>
+      <% books.forEach(function(book) { %>
 
         <div class="column">      
           <div id="caard" class="item">
 
-              <img class="ui fluid bordered rounded image" src="<%= post.image %>">
-              <div class="ui content">
-                <a class="ui large header" href="/jmmmmuu/post/<%= post._id %>"><%= post.title %></a>
-              </div>
+              <img class="ui fluid small rounded image" src="<%= book.image %>">
 
           </div>
         </div>
@@ -22,5 +19,9 @@
 
     </div>
   </div>
+  <a href="/jmmmmuu/book/search">
+    <button class="ui inverted green button">add New</button>
+  </a>
+</div>
 
 <% include ../partials/footer %>
