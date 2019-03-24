@@ -19,3 +19,8 @@
 #caard .content {
     padding-top: 15px;
 }
+
+#postContent {
+    text-align: center;
+    white-space: pre;
+}
