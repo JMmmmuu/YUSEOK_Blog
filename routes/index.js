@@ -28,7 +28,8 @@ router.get("/", function(req, res) {
             recentBooks = books;
         }
     });
-    res.render("main", {'posts':recentPosts, 'books':recentBooks});
+    // res.render("main", {posts:recentPosts, books:recentBooks});
+    res.render("main", {posts, recenPosts});
 });
 
 // REGISTER ROUTE
