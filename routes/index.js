@@ -2,6 +2,7 @@ var express = require("express"),
     router = express.Router(),
     passport = require("passport"),
     Post = require("../models/post"),
+    Book = require("../models/book"),
     User = require("../models/user");
 
 // all routes starts with "jmmmmuu/"
