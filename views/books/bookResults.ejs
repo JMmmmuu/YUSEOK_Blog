@@ -8,12 +8,12 @@
     <div class="grouped fields">
         <label for="selected">Select the proper book:</label>
 
-        <% data["items"].forEach(function(book) { %>
+        <% data["item"].forEach(function(book) { %>
     
             <div class="field">
                 <div class="ui radio checkbox">
                     <input type="radio" name="selected" value="<%= JSON.stringify(book) %>">
-                    <label><img src="<%- book.image %>">
+                    <label><img src="<%- book.cover %>">
                     <%- book.title %></label>
                     
                 </div>
