@@ -37,11 +37,11 @@
                         <div class="ui horizontal divider">Cover</div>
 
                         <div class="ui two column grid">
-                            <% books.forEach(function card) { %>
+                            <% books.forEach(function(book) { %>
                                 <div class="column">
                                     <div class="ui fluid card">
                                         <div class="image">
-                                            <img src="<%= card.cover %>">
+                                            <img src="<%= book.cover %>">
                                         </div>
                                     </div>
                                 </div>
