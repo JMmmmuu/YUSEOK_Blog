@@ -44,12 +44,17 @@ router.post("/", function(req, res) {
 router.get("/results", function(req, res) {
     //var query = utf8.encode(req.query.searchedBook);
     var query = req.query.searchedBook;
-    var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=10" + "&d_titl",
-        header = {
-            "X-Naver-Client-Id": "y80v6xvi7snx2hnMqZ8B",
-            "X-Naver-Client-Secret": "aLthqKrcRB"
-        };
-    request({url: encodeURI(url), headers: header}, function(err, response, body) {
+    // var url = "https://openapi.naver.com/v1/search/book.json?query=" + query + "&display=10" + "&d_titl",
+    var TTBKEY = "ttbjeff11102240001"
+    var url = "http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey="
+        + TTBKEY + "&Query=" + query
+        + "&QueryType=ItemNewAll&SearchTarget=Book&MaxResults=10&start=1&output=JS&Version=20131101"
+        // header = {
+        //     "X-Naver-Client-Id": "y80v6xvi7snx2hnMqZ8B",
+        //     "X-Naver-Client-Secret": "aLthqKrcRB"
+        // };
+    // request({url: encodeURI(url), headers: header}, function(err, response, body) {
+    request({url: encodeURI(url)}, function(err, response, body) {
         if (err) {
             console.log("error occured searching book");
             console.log(err);
