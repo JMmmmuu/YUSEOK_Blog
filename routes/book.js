@@ -47,7 +47,7 @@ router.get("/results", function(req, res) {
     var TTBKEY = "ttbjeff11102240001"
     var url = "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx?ttbkey="
         + TTBKEY + "&Query=" + query
-        + "&SearchTarget=Book&MaxResults=10&start=1&Cover=MidBig&Output=JS&Version=20131101"
+        + "&SearchTarget=Book&MaxResults=10&start=1&Cover=Big&Output=JS&Version=20131101"
     request(encodeURI(url), function(err, response, body) {
         if (err) {
             console.log("error occured searching book");
