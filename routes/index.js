@@ -14,22 +14,22 @@ router.get("/", function(req, res) {
         if (err) {
             console.log("Error occured in finding posts");
             console.log(err);
-        }
-        else {
+        } else {
             recentPosts = posts;
+
+            Book.find({}).sort({updated: -1}).limit(4).exec(function(err2, books) {
+                if (err2) {
+                    console.log("Error occured in finding books");
+                    console.log(err2);
+                }
+                else {
+                    recentBooks = books;
+                    res.render("main", {posts:recentPosts, books:recentBooks});
+                }
+            });
         }
     });
-    Book.find({}).sort({date: -1}).limit(4).exec(function(err, books) {
-        if (err) {
-            console.log("Error occured in finding books");
-            console.log(err);
-        }
-        else {
-            recentBooks = books;
-        }
-    });
-    // res.render("main", {posts:recentPosts, books:recentBooks});
-    res.render("main", {posts, recenPosts});
+    // res.render("main", {posts, recenPosts});
 });
 
 // REGISTER ROUTE

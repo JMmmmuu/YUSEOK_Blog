@@ -4,7 +4,7 @@
     <div class="ui grid">
         <div class="two column row">
 
-            <div class="column">
+            <div id="postSection" class="column">
                 <div class="ui placeholder segment">
                     <div class="ui vertical segment">
                         <a class="ui huge header" href="/jmmmmuu/post/">Post</a>
@@ -30,23 +30,23 @@
                 </div><!-- placeholder segment -->
             </div><!-- column -->
 
-            <div class="column">
+            <div id="bookSection" class="column">
                 <div class="ui placeholder segment">
                     <div class="ui vertical segment">
-                        <a class="ui huge header" href="/jmmmuu/book/">Book</div>
+                        <a class="ui huge header" href="/jmmmuu/book/">Book</a>
                         <div class="ui horizontal divider">Cover</div>
 
-                        <div class="ui two column grid">
-                            <% books.forEach(function(book) { %>
-                                <div class="column">
-                                    <div class="ui fluid card">
-                                        <div class="image">
-                                            <img src="<%= book.cover %>">
+                            <div class="ui two column grid">
+                                <% books.forEach(function(book) { %>
+                                    <div class="column">
+                                        <div class="ui fluid card">
+                                            <div class="image">
+                                                <img src="<%= book.cover %>">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            <% }); %>
-                        </div><!-- class="grid" -->
+                                <% }); %>
+                            </div><!-- class="grid" -->
                     </div>
                 </div>
             </div><!-- column -->
