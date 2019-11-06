@@ -33,7 +33,20 @@
             <div class="column">
                 <div class="ui placeholder segment">
                     <div class="ui vertical segment">
-                        <div class="ui huge header">Book</div>
+                        <a class="ui huge header" href="/jmmmuu/book/">Book</div>
+                        <div class="ui horizontal divider">Cover</div>
+
+                        <div class="ui two column grid">
+                            <% books.forEach(function card) { %>
+                                <div class="column">
+                                    <div class="ui fluid card">
+                                        <div class="image">
+                                            <img src="<%= card.cover %>">
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div><!-- class="grid" -->
                     </div>
                 </div>
             </div><!-- column -->
