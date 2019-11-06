@@ -3,17 +3,16 @@ var mongoose = require("mongoose");
 var bookSchema = new mongoose.Schema({
     title: String,
     link: String,
-    image: String,
     author: String,
-    price: String,
-    discount: String,
+    pubDate: String,
+    cover: String,
+    priceStandard: String,
     publisher: String,
-    pubdate: String,
     isbn: String,
     description: String,
 
-    quotes: [String],
     updated: { type: Date, default: Date.now },
+    reviewTitle: String,
     review: String
 });
 
