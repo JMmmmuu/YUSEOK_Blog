@@ -24,3 +24,15 @@
     text-align: center;
     white-space: pre-line;
 }
+
+#bookSection #bookCover {
+    text-align: center;
+    position: relative;
+}
+
+#bookCover #coverImg {
+    position: absolute;
+    text-align: center;
+    position: relative;
+    margin: auto auto;
+}
