@@ -9,23 +9,26 @@ var express = require("express"),
 
 // ROOT ROUTE
 router.get("/", function(req, res) {
+    var recentPosts, recentBooks;
     Post.find({}).sort({date: -1}).limit(3).exec(function(err, posts) {
         if (err) {
             console.log("Error occured in finding posts");
             console.log(err);
         }
         else {
-            Book.find({}).sort({date: -1}).limit(4).exec(function(err2, books) {
-                if (err2) {
-                    console.log("Error occured in finding books");
-                    console.log(err2);
-                }
-                else {
-                    res.render("main", {posts:posts, books:books});
-                }
-            })
+            recentPosts = posts;
         }
     });
+    Book.find({}).sort({date: -1}).limit(4).exec(function(err, books) {
+        if (err) {
+            console.log("Error occured in finding books");
+            console.log(err);
+        }
+        else {
+            recentBooks = books;
+        }
+    });
+    res.render("main", {posts:recentPosts, books:recentBooks});
 });
 
 // REGISTER ROUTE
