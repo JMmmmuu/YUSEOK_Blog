@@ -22,7 +22,7 @@ router.get("/", function(req, res) {
                 else {
                     res.render("main", {posts:posts, books:books});
                 }
-            }
+            })
         }
     });
 });
