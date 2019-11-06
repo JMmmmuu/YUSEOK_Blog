@@ -14,7 +14,15 @@ router.get("/", function(req, res) {
             console.log(err);
         }
         else {
-            res.render("main", {posts, posts});
+            Book.find({}).sort({date: -1}).limit(4).exec(function(err2, books) {
+                if (err2) {
+                    console.log("Error occured in finding books");
+                    console.log(err2);
+                }
+                else {
+                    res.render("main", {posts:posts, books:books});
+                }
+            }
         }
     });
 });
